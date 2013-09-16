@@ -1,0 +1,7 @@
+*.bin
+*.hex
+*.lst
+*.rel
+*.map
+*.mem
+*.asm
