@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Passlocker by andyhuzhill</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Passlocker</h1>
+        <h2></h2>
+
+        <section id="downloads">
+          <a href="https://github.com/andyhuzhill/passlocker/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/andyhuzhill/passlocker/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/andyhuzhill/passlocker" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="%E5%AF%86%E7%A0%81%E9%94%81" class="anchor" href="#%E5%AF%86%E7%A0%81%E9%94%81"><span class="octicon octicon-link"></span></a>密码锁</h1>
+
+<pre><code>这是我们专业这学期＂单片机实习＂的一个题目的源代码．
+</code></pre>
+
+<h2>
+<a name="%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82" class="anchor" href="#%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="octicon octicon-link"></span></a>设计要求</h2>
+
+<p>　　　1、密码存储在I2C器件中，实现密码掉电不丢失。</p>
+
+<p>　　　2、电路板在上电后四个数码管显示“—”。</p>
+
+<p>　　　3、实现数字键0-9和功能键的设计， </p>
+
+<p>　　　4、四个功能键的说明：</p>
+
+<p>　　（1）密码的输入键：按下此键时，屏幕（四个数码管）空白显示（全黑），按下数字键输入原来密码，每输入一个数字，相应的数码管显示“—”。若输入不正确，屏幕（四个数码管）显示“HHHH”。若输入正确后，显示“8888”</p>
+
+<p>　　（2）退出键：密码的输入后，按下此键表示退出，屏幕（四个数码管）显示“—”。</p>
+
+<p>　　（3）密码修改键：按下此键时，屏幕（四个数码管）空白显示（全黑），按下数字键输入原来密码，每输入一个数字，相应的数码管显示输入的数字，若输入正确后，屏幕（四个数码管）显示“8888”。按下数字键输入新的密码，四个数码管清空显示（全黑），每输入一个数字，相应的数码管显示输入的数字。如果放弃修改，按退出键放弃保存，进入状态2。</p>
+
+<p>（4）修改确认键：当密码密码修改键按下，若输入密码正确后，按下此键时，将修改的密码进行存储。</p>
+
+<h2>
+<a name="%E5%B7%A5%E7%A8%8B%E4%BB%8B%E7%BB%8D" class="anchor" href="#%E5%B7%A5%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="octicon octicon-link"></span></a>工程介绍</h2>
+
+<pre><code>这次的设计使用了一片STC89C52单片机，使用AT24C02--EEPROM存储密码,四位共阳数码管，4X4矩阵键盘，MAX232串口电路作为程序下载电路。
+我还使用了蜂鸣器做了一个小拓展。
+
+编译器使用开源的SDCC为8051编译代码，使用Eclipse +　CDT +
+SDCC插件管理工程，你也可以自己写Makefile来编译这个工程。
+
+程序文件如下：
+
+|-- config.h      //与CPU有关的配置
+|-- iic2402.c     //AT24C02的驱动程序
+|-- iic2402.h
+|-- iic.c         // 51单片机使用IO口模拟IIC协议函数
+|-- iic.h
+|-- key.c         //扫描键盘的函数
+|-- key.h
+|-- main.c        //主要功能实现代码
+|-- Port.h        //与引脚相关的一些定义
+</code></pre>
+
+<h2>
+<a name="%E6%9C%80%E5%90%8E%E7%BB%93%E6%9E%9C" class="anchor" href="#%E6%9C%80%E5%90%8E%E7%BB%93%E6%9E%9C"><span class="octicon octicon-link"></span></a>最后结果</h2>
+
+<pre><code>最终我的程序实现了所有的设计要求，并且，自己添加了一些小的功能，比如在正确输入密码之后，会有两声短促的蜂鸣声，如果密码错误则是一声比较长的蜂鸣声。
+还有，我在EEPROM中保存密码的时候，使用了简单的移位加密，这样使得就算EEPROM里面的数据被其他非正常手段读取了，也不会获得正确的密码。
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
