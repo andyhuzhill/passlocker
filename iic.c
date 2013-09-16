@@ -1,3 +1,21 @@
+/*
+ * ========================================================================
+ *
+ *       Filename:  iic.c
+ *
+ *    Description:  use GPIO as IIC
+ *
+ *        Version:  1.0
+ *        Created:  2013年09月16日 23时11分14秒
+ *       Revision:  none
+ *       Compiler:  
+ *
+ *         Author:  Andy Scout , andyhuzhill@gmail.com
+ *   Organization:  
+ *
+ * =========================================================================
+ */
+
 
 #include "iic.h"
 

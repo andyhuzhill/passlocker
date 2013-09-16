@@ -1,3 +1,13 @@
+/* 
+ *    FileName  : main.c
+ *
+ *
+ *  Description : Main functions
+ *       Author : Andy Scout
+ *     
+ *    Copyright : GPL v2
+ *  
+ */
 
 #include"config.h"
 #include"Port.h"
